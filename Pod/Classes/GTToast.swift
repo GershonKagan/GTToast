@@ -17,7 +17,7 @@ open class GTToast {
         return GTToast.create(message, config: config, image: image)
     }
     
-    open static func create(_ message: String, config: GTToastConfig = GTToastConfig(), image: UIImage? = .none) -> GTToastView {
+    public static func create(_ message: String, config: GTToastConfig = GTToastConfig(), image: UIImage? = .none) -> GTToastView {
         let toast = GTToastView(message: message, config: config, image: image)
         toast.frame = createFrame(toast, config: config)
         
@@ -54,9 +54,9 @@ public struct GTToastConfig {
     let maxImageSize: CGSize
     
     public init(
-        contentInsets: UIEdgeInsets = GTToastConfig.defaultInsets,
+        contentInsets: UIEdgeInsets = UIEdgeInsets(top: 3.0, left: 3.0, bottom: 3.0, right: 3.0),
         cornerRadius: CGFloat = 3.0,
-        font: UIFont = GTToastConfig.defaultFont,
+        font: UIFont = UIFont.systemFont(ofSize: 12.0),
         textColor: UIColor = UIColor.white,
         textAlignment: NSTextAlignment = .center,
         backgroundColor: UIColor = UIColor.black.withAlphaComponent(0.8),
